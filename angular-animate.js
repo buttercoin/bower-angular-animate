@@ -1173,13 +1173,13 @@ angular.module('ngAnimate', ['ng'])
           }
         }
 
-        if(appliedStyles.length > 0) {
+        // if(appliedStyles.length > 0) {
           //the element being animated may sometimes contain comment nodes in
           //the jqLite object, so we're safe to use a single variable to house
           //the styles since there is always only one element being animated
-          var oldStyle = node.getAttribute('style') || '';
-          node.setAttribute('style', oldStyle + ' ' + style);
-        }
+          // var oldStyle = node.getAttribute('style') || '';
+          // node.setAttribute('style', oldStyle + ' ' + style);
+        // }
 
         element.on(css3AnimationEvents, onAnimationProgress);
         element.addClass(activeClassName);
@@ -1298,7 +1298,7 @@ angular.module('ngAnimate', ['ng'])
           var clone = angular.element(extractElementNode(element).cloneNode());
 
           //make the element super hidden and override any CSS style values
-          clone.attr('style','position:absolute; top:-9999px; left:-9999px');
+          clone.addClass('super-hidden');
           clone.removeAttr('id');
           clone.empty();
 
