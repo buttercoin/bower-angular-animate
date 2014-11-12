@@ -1884,17 +1884,6 @@ angular.module('ngAnimate', ['ng'])
         var maxDelay = Math.max(timings.transitionDelay, timings.animationDelay);
         var maxDelayTime = maxDelay * ONE_SECOND;
 
-        if (appliedStyles.length > 0) {
-          //the element being animated may sometimes contain comment nodes in
-          //the jqLite object, so we're safe to use a single variable to house
-          //the styles since there is always only one element being animated
-          var oldStyle = node.getAttribute('style') || '';
-          if (oldStyle.charAt(oldStyle.length-1) !== ';') {
-            oldStyle += ';';
-          }
-          node.setAttribute('style', oldStyle + ' ' + style);
-        }
-
         var startTime = Date.now();
         var css3AnimationEvents = ANIMATIONEND_EVENT + ' ' + TRANSITIONEND_EVENT;
         var animationTime     = (maxDelay + maxDuration) * CLOSING_TIME_BUFFER;
